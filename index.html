@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="jQuery RS Carousel : jQuery RS Carousel is a responsive and unobtrusive carousel written on top of jQuery and the jQuery UI Widget Factory providing a full and familiar API in less than 2.6kB minified and gzipped" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>jQuery RS Carousel</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/richardscarrott/jquery-ui-carousel">View on GitHub</a>
+
+          <h1 id="project_title">jQuery RS Carousel</h1>
+          <h2 id="project_tagline">jQuery RS Carousel is a responsive and unobtrusive carousel written on top of jQuery and the jQuery UI Widget Factory providing a full and familiar API in less than 2.6kB minified and gzipped</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/richardscarrott/jquery-ui-carousel/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/richardscarrott/jquery-ui-carousel/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>jQuery RS Carousel Quick Start</h2>
+
+<h3>Include the following JavaScript and CSS:</h3>
+
+<pre><code>&lt;!-- carousel CSS --&gt;
+&lt;link rel="stylesheet" type="text/css" href="css/jquery.rs.carousel.css" media="all" /&gt;
+
+&lt;!-- lib --&gt;
+&lt;script type="text/javascript" src="js/lib/jquery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/lib/jquery.ui.widget.js"&gt;&lt;/script&gt;
+
+&lt;!-- carousel core --&gt;
+&lt;script type="text/javascript" src="js/jquery.rs.carousel.js"&gt;&lt;/script&gt;
+
+&lt;!-- carousel extensions (optional) --&gt;
+&lt;script type="text/javascript" src="js/jquery.rs.carousel-autoscroll.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/jquery.rs.carousel-continuous.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<h3>This is the basic HTML structure required:</h3>
+
+<pre><code>&lt;div class="rs-carousel"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;!-- item 1 content --&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;!-- item 2 content --&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;!-- item 3 content --&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;!-- item 4 content --&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;!-- item 5 content etc. --&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h3>Here's the JavaScript:</h3>
+
+<pre><code>$(document).ready(function () {
+    $('.rs-carousel').carousel();
+});
+</code></pre>
+
+<h3>And here's the generated markup:</h3>
+
+<pre><code>&lt;div class="rs-carousel rs-carousel-horizontal"&gt;
+    &lt;div class="rs-carousel-mask"&gt;
+        &lt;ul class="rs-carousel-runner"&gt;
+            &lt;li class="rs-carousel-item"&gt;
+                &lt;!-- item 1 content --&gt;
+            &lt;/li&gt;
+            &lt;li class="rs-carousel-item"&gt;
+                &lt;!-- item 2 content --&gt;
+            &lt;/li&gt;
+            &lt;li class="rs-carousel-item"&gt;
+                &lt;!-- item 3 content --&gt;
+            &lt;/li&gt;
+            &lt;li class="rs-carousel-item"&gt;
+                &lt;!-- item 4 content --&gt;
+            &lt;/li&gt;
+            &lt;li class="rs-carousel-item"&gt;
+                &lt;!-- item 5 content etc. --&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;ol class="rs-carousel-pagination"&gt;
+        &lt;li class="rs-carousel-pagination-link rs-carousel-pagination-link-active"&gt;&lt;a href="#page-1"&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="rs-carousel-pagination-link"&gt;&lt;a href="#page-2"&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;a class="rs-carousel-action rs-carousel-action-prev" href="#"&gt;Previous&lt;/a&gt;
+    &lt;a class="rs-carousel-action rs-carousel-action-next rs-carousel-action-disabled" href="#"&gt;Next&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h2>Documentation</h2>
+
+<h3>Options</h3>
+
+<h4>
+<code>mask: '&gt; div'</code> (string)</h4>
+
+<p>A jQuery selector to match the <code>.rs-carousel-mask</code> element. The DOM is queried from the widgets root element. If the mask isn't found it will get dynamically added by the plugin.</p>
+
+<h4>
+<code>runner: '&gt; ul'</code> (string)</h4>
+
+<p>A jQuery selector to match the <code>.rs-carousel-runner</code> element. If the mask was found the DOM is queried from the mask otherwise it will be queried from the widgets root element.</p>
+
+<h4>
+<code>items: '&gt; li'</code> (string)</h4>
+
+<p>A jQuery selector to match the <code>.rs-carousel-item</code> element(s). The DOM is queried from the widgets runner.</p>
+
+<h4>
+<code>itemsPerTransition: 'auto'</code> (string, number)</h4>
+
+<p>Sets the number of items to scroll per transition, if set to 'auto' the number of items scrolled will be based on how many items are visible.</p>
+
+<h4>
+<code>orientation: 'horizontal'</code> (string)</h4>
+
+<p>Sets the orientation of the carousel, either 'horizontal' or 'vertical'.</p>
+
+<h4>
+<code>loop: false</code> (boolean)</h4>
+
+<p>If set to true carousel will loop back to first or last page accordingly.</p>
+
+<h4>
+<code>whitespace: false</code> (boolean)</h4>
+
+<p>If set to true the carousel will allow whitespace to be seen when there aren't enough items to fill the last page.</p>
+
+<h4>
+<code>nextPrevActions: true</code> (boolean)</h4>
+
+<p>Sets whether the next and prev actions are included, next and prev actions are inserted as anchor tags.</p>
+
+<h4>
+<code>insertPrevAction: function () { return $('&lt;a href="#" class="rs-carousel-action rs-carousel-action-prev"&gt;Prev&lt;/a&gt;').appendTo(this); }</code> (function)</h4>
+
+<p>Allows you to define the prev actions mark-up as well as its location in the DOM.</p>
+
+<p>The context of the function will be the carousels root element and the function should return a jQuery object, e.g.</p>
+
+<pre><code>function () {
+    // this === &lt;div class="rs-carousel"&gt;&lt;/div&gt;
+    return $('&lt;a href="#"&gt;Prev&lt;/a&gt;').appendTo(this);
+}
+</code></pre>
+
+<h4>
+<code>insertNextAction: function () { return $('&lt;a href="#" class="rs-carousel-action rs-carousel-action-next"&gt;Next&lt;/a&gt;').appendTo(this); }</code> (function)</h4>
+
+<p>Allows you to define the prev actions mark-up as well as its location in the DOM.</p>
+
+<p>The context of the function will be the carousels root element and the function should return a jQuery object, e.g.</p>
+
+<pre><code>function () {
+    // this === &lt;div class="rs-carousel"&gt;&lt;/div&gt;
+    return $('&lt;a href="#"&gt;Next&lt;/a&gt;').appendTo(this);
+}
+</code></pre>
+
+<h4>
+<code>pagination: true</code> (boolean)</h4>
+
+<p>Sets whether pagination links should be included, pagination links are constructed as an ordered list.</p>
+
+<h4>
+<code>insertPagination: function (pagination) { return $(pagination).insertAfter($(this).find('.rs-carousel-mask')); }</code> (function)</h4>
+
+<p>Allows you to override where in the DOM the pagination links are inserted as well as decorate them with any required HTML.</p>
+
+<p>The context of the function will be the carousels root element and the function should return a jQuery object containing the <code>pagination</code>, e.g.</p>
+
+<pre><code>function (pagination) {
+    // this === &lt;div class="rs-carousel"&gt;&lt;/div&gt;
+    // pagination === &lt;ol class="rs-carousel-pagination"&gt; ... &lt;/ol&gt;
+    return $(pagination).insertAfter($(this).find('.rs-carousel-mask'));
+}
+</code></pre>
+
+<h4>
+<code>speed: 'normal'</code> (string)</h4>
+
+<p>Sets the speed of the carousel.</p>
+
+<h4>
+<code>easing: 'swing'</code> (string)</h4>
+
+<p>Sets the easing equation used.</p>
+
+<h4>
+<code>disabled: false</code> (boolean)</h4>
+
+<p>If set to true carousel will no longer change state.</p>
+
+<h4>
+<code>autoScroll: false</code> (boolean)</h4>
+
+<p>Set to true to invoke auto scrolling, note when the mouse enters the carousel the interval will stop, it'll consequently begin when the mouse leaves.</p>
+
+<p>NOTE: Requires the autoScroll extension (jquery.rs.carousel-autoscroll.js).</p>
+
+<h4>
+<code>pause: 8000</code> (number)</h4>
+
+<p>Sets the amount of time in miliseconds the carousel waits before it automatically scrolls.</p>
+
+<p>NOTE: Requires the autoScroll extension (jquery.rs.carousel-autoscroll.js).</p>
+
+<h4>
+<code>continuous: false</code> (boolean)</h4>
+
+<p>If set to true the carousel will continuously loop through its pages rather than scrolling all the way back to the first page.</p>
+
+<p>NOTE: Requires the continuous extension (jquery.rs.carousel-continuous.js).</p>
+
+<h3>Events</h3>
+
+<h4>
+<code>create: null</code> (function)</h4>
+
+<p>Fired on first call.</p>
+
+<p>It can be passed in the options object like this:</p>
+
+<pre><code>$(':rs-carousel').carousel({
+   create: function (event, data) { ... }
+});
+</code></pre>
+
+<p>and bound as an event like this:</p>
+
+<pre><code>$(':rs-carousel').on('carouselcreate', function (event, data) {
+    ...
+});
+</code></pre>
+
+<h4>
+<code>before: null</code> (function)</h4>
+
+<p>Fired before transition. Calling <code>preventDefault</code> on the event object will prevent the carousel from scrolling.</p>
+
+<p>It can be passed in the options object like this:</p>
+
+<pre><code>$(':rs-carousel').carousel({
+    before: function (event, data) { ... }
+});
+</code></pre>
+
+<p>and bound as an event like this:</p>
+
+<pre><code>$(':rs-carousel').on('carouselbefore', function (event, data) {
+    ...
+});
+</code></pre>
+
+<h4>
+<code>after: null</code> (function)</h4>
+
+<p>Fired after transition.</p>
+
+<p>It can be passed in the options object like this:</p>
+
+<pre><code>$(':rs-carousel').carousel({
+    after: function(event, data) { ... }
+});
+</code></pre>
+
+<p>and bound as an event like this:</p>
+
+<pre><code>$(':rs-carousel').on('carouselafter', function(event, data) {
+    ...
+});
+</code></pre>
+
+<p>All callbacks provide two arguments, the first of which is the <code>event</code> object which contains an <code>animate</code> property to determine whether the transition was animated or not (this can be useful if you're syncing up other animations with the slide). Also the <code>event.originalEvent</code> can be inspected to determine which method was used to invoke the transition, be it <code>next</code>, <code>prev</code> or <code>goToPage</code>.</p>
+
+<p>The second argument is <code>data</code> which provides access to the carousels core elements as well as the current and previous pages:</p>
+
+<pre><code>{
+    page: (jQuery object),
+    prevPage: (jQuery object),
+    elements: {
+        mask: (jQuery object)
+        runner: (jQuery object)
+        items: (jQuery object)
+        pagination: (jQuery object)
+        nextAction: (jQuery object)
+        prevAction: (jQuery object)
+    }
+}
+</code></pre>
+
+<h3>Methods</h3>
+
+<h4>next <code>$(':rs-carousel').carousel('next')</code>
+</h4>
+
+<p>Moves to the next page.</p>
+
+<h4>prev <code>$(':rs-carousel').carousel('prev')</code>
+</h4>
+
+<p>Moves to the prev page.</p>
+
+<h4>goToPage <code>$(':rs-carousel').carousel('goToPage', page [, animate])</code>
+</h4>
+
+<p>Moves to the specified zero based <code>page</code>. If <code>animate</code> is set to false it'll jump straight there.</p>
+
+<h4>goToItem <code>$(':rs-carousel').carousel('goToItem', item [, animate])</code>
+</h4>
+
+<p>Moves to page containing <code>item</code>, <code>item</code> can be a zero based number, a vanilla DOM element
+or a jQuery object. If <code>animate</code> is set to false it'll jump straight there.</p>
+
+<h4>refresh <code>$(':rs-carousel').carousel('refresh')</code>
+</h4>
+
+<p>Refreshes carousel based on new state. The carousel can be made responsive by calling this method on the windows resize event.</p>
+
+<h4>getPage <code>$(':rs-carousel').carousel('getPage' [, index])</code>
+</h4>
+
+<p>Returns a jQuery object containing the items on the page found at <code>index</code>. If <code>index</code> is omitted it'll return the current page.</p>
+
+<h4>getPages <code>$(':rs-carousel').carousel('getPages')</code>
+</h4>
+
+<p>Returns the array of pages e.g. [jQuery(li, li, li), jQuery(li, li, li, li), jQuery(li, li, li), jQuery(li, li)]</p>
+
+<h4>getIndex <code>$(':rs-carousel').carousel('getIndex')</code>
+</h4>
+
+<p>Returns the index of the current page.</p>
+
+<h4>getPrevIndex <code>$(':rs-carousel').carousel('getPrevIndex')</code>
+</h4>
+
+<p>Returns the index of the previous page.</p>
+
+<h4>getNoOfPages <code>$(':rs-carousel').carousel('getNoOfPages')</code>
+</h4>
+
+<p>Returns the number of pages.</p>
+
+<h4>getNoOfItems <code>$(':rs-carousel').carousel('getNoOfItems')</code>
+</h4>
+
+<p>Returns number of items in carousel.</p>
+
+<h4>add <code>$(':rs-carousel').carousel('add', items)</code>
+</h4>
+
+<p>Appends items to carousel, <code>items</code> can be DOM element, HTML string, or jQuery object.</p>
+
+<h4>remove <code>$(':rs-carousel').carousel('remove', selector)</code>
+</h4>
+
+<p>Removes the items matched by <code>selector</code> from the carousel.</p>
+
+<h4>option <code>$(':rs-carousel').carousel('option', optionName [, value])</code>
+</h4>
+
+<p>Get or set any carousel option. If no <code>value</code> is specified, will act as a getter.</p>
+
+<h4>option <code>$(':rs-carousel').carousel('option' [, options])</code>
+</h4>
+
+<p>Get or set multiple carousel options at once by providing an <code>options</code> object. If <code>options</code> is omitted it will return all options.</p>
+
+<h4>disable <code>$(':rs-carousel').carousel('disable')</code>
+</h4>
+
+<p>Disables the carousel and adds the <code>'rs-carousel-disabled'</code> className to the root element.</p>
+
+<h4>enable <code>$(':rs-carousel').carousel('enable')</code>
+</h4>
+
+<p>Enables the carousel and removes the <code>'rs-carousel-disabled'</code> className from the root element.</p>
+
+<h4>widget <code>$(':rs-carousel').carousel('widget')</code>
+</h4>
+
+<p>Returns the root element.</p>
+
+<h4>destroy <code>$(':rs-carousel').carousel('destroy')</code>
+</h4>
+
+<p>Removes the carousel functionality completely. This will return the element back to its pre-init state.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">jQuery RS Carousel maintained by <a href="https://github.com/richardscarrott">richardscarrott</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
