@@ -36,23 +36,23 @@
 <h3>Include the following JavaScript and CSS:</h3>
 
 <pre><code>&lt;!-- carousel CSS --&gt;
-&lt;link rel="stylesheet" type="text/css" href="css/jquery.rs.carousel.css" media="all" /&gt;
+&lt;link rel="stylesheet" type="text/css" href="dist/css/jquery.rs.carousel.css" media="all" /&gt;
 
 &lt;!-- lib --&gt;
-&lt;script type="text/javascript" src="js/lib/jquery.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="js/lib/jquery.ui.widget.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="vendor/jquery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="vendor/jquery.ui.widget.js"&gt;&lt;/script&gt;
 &lt;!-- if using touch --&gt;
-&lt;script type="text/javascript" src="js/lib/jquery.event.drag.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="vendor/jquery.event.drag.js"&gt;&lt;/script&gt;
 &lt;!-- if using touch and translate3d --&gt;
-&lt;script type="text/javascript" src="js/lib/jquery.translate3d.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="vendor/jquery.translate3d.js"&gt;&lt;/script&gt;
 
 &lt;!-- carousel core --&gt;
-&lt;script type="text/javascript" src="js/jquery.rs.carousel.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="dist/js/jquery.rs.carousel.js"&gt;&lt;/script&gt;
 
 &lt;!-- carousel extensions (optional) --&gt;
-&lt;script type="text/javascript" src="js/jquery.rs.carousel-autoscroll.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="js/jquery.rs.carousel-continuous.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="js/jquery.rs.carousel-touch.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="dist/js/jquery.rs.carousel-autoscroll.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="dist/js/jquery.rs.carousel-continuous.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="dist/js/jquery.rs.carousel-touch.js"&gt;&lt;/script&gt;
 </code></pre>
 
 <h3>This is the basic HTML structure required:</h3>
@@ -87,32 +87,32 @@
 
 <h3>And here's the generated markup:</h3>
 
-<pre><code>&lt;div class="rs-carousel rs-carousel-horizontal"&gt;
+<pre><code>&lt;div class="rs-carousel [rs-carousel-horizontal rs-carousel-vertical rs-carousel-disabled]"&gt;
     &lt;div class="rs-carousel-mask"&gt;
         &lt;ul class="rs-carousel-runner"&gt;
-            &lt;li class="rs-carousel-item"&gt;
+            &lt;li class="rs-carousel-item [rs-carousel-item-active]"&gt;
                 &lt;!-- item 1 content --&gt;
             &lt;/li&gt;
-            &lt;li class="rs-carousel-item"&gt;
+            &lt;li class="rs-carousel-item [rs-carousel-item-active]"&gt;
                 &lt;!-- item 2 content --&gt;
             &lt;/li&gt;
-            &lt;li class="rs-carousel-item"&gt;
+            &lt;li class="rs-carousel-item [rs-carousel-item-active]"&gt;
                 &lt;!-- item 3 content --&gt;
             &lt;/li&gt;
-            &lt;li class="rs-carousel-item"&gt;
+            &lt;li class="rs-carousel-item [rs-carousel-item-active]"&gt;
                 &lt;!-- item 4 content --&gt;
             &lt;/li&gt;
-            &lt;li class="rs-carousel-item"&gt;
+            &lt;li class="rs-carousel-item [rs-carousel-item-active]"&gt;
                 &lt;!-- item 5 content etc. --&gt;
             &lt;/li&gt;
         &lt;/ul&gt;
     &lt;/div&gt;
-    &lt;ol class="rs-carousel-pagination"&gt;
-        &lt;li class="rs-carousel-pagination-link rs-carousel-pagination-link-active"&gt;&lt;a href="#page-1"&gt;1&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="rs-carousel-pagination-link"&gt;&lt;a href="#page-2"&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;ol class="rs-carousel-pagination [rs-carousel-pagination-disabled]"&gt;
+        &lt;li class="rs-carousel-pagination-link [rs-carousel-pagination-link-active]"&gt;&lt;a href="#page-1"&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="rs-carousel-pagination-link [rs-carousel-pagination-link-active]"&gt;&lt;a href="#page-2"&gt;2&lt;/a&gt;&lt;/li&gt;
     &lt;/ol&gt;
-    &lt;a class="rs-carousel-action rs-carousel-action-prev" href="#"&gt;Previous&lt;/a&gt;
-    &lt;a class="rs-carousel-action rs-carousel-action-next rs-carousel-action-disabled" href="#"&gt;Next&lt;/a&gt;
+    &lt;a class="rs-carousel-action rs-carousel-action-prev [rs-carousel-action-active rs-carousel-action-disabled]" href="#"&gt;Prev&lt;/a&gt;
+    &lt;a class="rs-carousel-action rs-carousel-action-next [rs-carousel-action-active rs-carousel-action-disabled]" href="#"&gt;Next&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
 
