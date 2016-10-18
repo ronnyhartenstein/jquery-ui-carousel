@@ -1,0 +1,19 @@
+{
+  "name": "jquery-ui-carousel",
+  "version": "1.0.3",
+  "main": ["dist/js/jquery.rs.carousel.js", "dist/css/jquery.rs.carousel.css"],
+  "ignore": [
+    "**/.*"
+  ],
+  "homepage": "http://www.richardscarrott.co.uk/assets/javascript/jquery/ui-carousel/demo/",
+  "authors": [
+    "Richard Scarrott"
+  ],
+  "description": "responsive and touch-enabled carousel written on top of jQuery and the jQuery UI Widget Factory ",
+  "keywords": [
+    "jquery",
+    "carousel",
+    "touch"
+  ],
+  "license": "MIT"
+}
